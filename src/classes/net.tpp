@@ -35,6 +35,14 @@ Node* Net::get_node(int i){
   return &node_item -> data;
 }
 
+Node* Net::get_node_by_name(char name[40]){
+  ListItem<Node>* node_item = this->nodes.get_item(0);
+  do {
+    if (strcmp(node_item -> data.name, name) == 0)
+      return &node_item -> data;
+  } while ((node_item = node_item -> next) != NULL);
+}
+
 void Net::print(){
   this -> nodes.print();
 }

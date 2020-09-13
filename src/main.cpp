@@ -16,6 +16,9 @@ int main(void){
   net.add_node(0.4, "E");
   net.add_node(0.3242, "F");
 
+  Node* n = net.get_node_by_name((char*)"C");
+  cout << *n << endl << endl;
+
   for (int i=0;i<6; i++){
     Node* n = net.get_node(i);
     cout << *n << endl;

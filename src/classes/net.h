@@ -36,6 +36,7 @@ namespace sig_net
       List<Link> links;
 
       Node* get_node(int i);
+      Node* get_node_by_name(char name[40]);
       Net();
       void add_node(double sig, string name);
       void add_link(double prob, Node* from, Node* to);
