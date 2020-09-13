@@ -19,6 +19,16 @@ template <typename T>
 List<T>::List(void): _length(0){};
 
 template <typename T>
+ListItem<T>* List<T>::get_item(int i){
+  if (i < 0 || i >= _length)
+    throw "Index out of bounds";
+  ListItem<T>* ref = this -> tail;
+  for (int k=0; k<i; k++)
+    ref = ref -> next;
+  return ref;
+}
+
+template <typename T>
 void List<T>::add(T data){
   ListItem<T>* new_item_ptr = new ListItem<T>(data);
   if (_length > 0) {

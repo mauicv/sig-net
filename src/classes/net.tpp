@@ -12,6 +12,9 @@ Node::Node(double sig, string name):sig(sig){
   strncpy(this->name, name.c_str(), 40);
 };
 
+Link::Link(double prob, Node* from, Node* to):
+  prob(prob), from(from), to(to) {};
+
 Net::Net(void):_num_links(0), _num_nodes(0){
   List<Node>* list_ptr = new List<Node>();
   this -> nodes = *list_ptr;
@@ -23,7 +26,14 @@ void Net::add_node(double sig, string name){
   this -> nodes.add(new_node);
 };
 
-// Net::add_link(void){};
+void Net::add_link(double prob, Node* from, Node* to){
+  Link* link_ptr = new Link(prob, from, to);
+};
+
+Node* Net::get_node(int i){
+  ListItem<Node>* node_item = this->nodes.get_item(i);
+  return &node_item -> data;
+}
 
 void Net::print(){
   this -> nodes.print();

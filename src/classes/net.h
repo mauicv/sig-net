@@ -11,16 +11,10 @@ namespace sig_net
 {
   class Node {
     public:
-      // List<Node> from;
-      // List<Node> to;
       double sig;
-      // string name;
       char name[40];
       Node(double sig, string name);
       friend ostream & operator << ( ostream &, Node & );
-
-      // void link_to(ListItem<T> &to);
-      // void link_from(ListItem<T> &from);
   };
 
   ostream& operator<<(ostream& os, Node& n){
@@ -33,19 +27,18 @@ namespace sig_net
       Node* from;
       Node* to;
       double prob;
-      Link(double prob);
-      // void link_to(ListItem<T> &to);
-      // void link_from(ListItem<T> &from);
+      Link(double prob, Node* from, Node* to);
   };
 
   class Net {
     public:
       List<Node> nodes;
-      // List<Link> links;
+      List<Link> links;
 
+      Node* get_node(int i);
       Net();
       void add_node(double sig, string name);
-      // void add_link(Node &from, Node &to);
+      void add_link(double prob, Node* from, Node* to);
 
       void print();
     private:
@@ -53,12 +46,6 @@ namespace sig_net
       int _num_nodes;
   };
 }
-
-// ostream& operator<<(ostream& os, sig_net::Node& n){
-//   os << n.sig;
-//   return os;
-// }
-
 
 #include "net.tpp"
 

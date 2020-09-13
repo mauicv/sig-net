@@ -24,7 +24,9 @@ namespace ds
 
     public:
       List(void);
+
       int length(void);
+      ListItem<T>* get_item(int i);
       void add(T data);
       void print(void);
   };
