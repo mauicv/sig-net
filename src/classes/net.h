@@ -28,7 +28,14 @@ namespace sig_net
       Node* to;
       double prob;
       Link(double prob, Node* from, Node* to);
+      friend ostream & operator << ( ostream &, Link & );
   };
+
+  ostream& operator<<(ostream& os, Link& l){
+    os << " (" << l.from -> name << " -> "
+       << l.to -> name << ", " << l.prob << ")";
+    return os;
+  }
 
   class Net {
     public:

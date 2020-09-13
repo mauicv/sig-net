@@ -28,6 +28,7 @@ void Net::add_node(double sig, string name){
 
 void Net::add_link(double prob, Node* from, Node* to){
   Link* link_ptr = new Link(prob, from, to);
+  this -> links.add(*link_ptr);
 };
 
 Node* Net::get_node(int i){
@@ -44,5 +45,8 @@ Node* Net::get_node_by_name(char name[40]){
 }
 
 void Net::print(){
+  cout << "nodes:\t";
   this -> nodes.print();
+  cout << "links:\t";
+  this -> links.print();
 }
