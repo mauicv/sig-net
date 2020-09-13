@@ -11,8 +11,8 @@ namespace ds
       T data;
 
       ListItem(T data);
-      void link_to(ListItem<T> &to);
-      void link_from(ListItem<T> &from);
+      void link_to(ListItem<T> *to);
+      void link_from(ListItem<T> *from);
   };
 
   template <typename T>
@@ -32,4 +32,4 @@ namespace ds
 
 #include "list.tpp"
 
-#endif /* MY_CLASS_H */
+#endif /* LIST_H */
