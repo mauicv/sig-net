@@ -1,5 +1,5 @@
-#include "list.h"
-#include "net.h"
+#include "classes/list.h"
+#include "classes/net.h"
 #include <iostream>
 
 using namespace sig_net;
